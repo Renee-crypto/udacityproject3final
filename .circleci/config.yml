@@ -1,12 +1,14 @@
 version: 2.1
 
 commands:
-    # install_awscli:
-    #   description: Install AWS CLI v2
-    #   steps:
-    #     - run: 
-    #         name: Install AWS CLI v2
-    #         command: | 
+    install_awscli:
+      description: Install AWS CLI v2
+      steps:
+        - run: 
+            name: Install AWS CLI v2
+            command: | 
+              pip install awscli --upgrade
+
     #           msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
               # unzip awscliv2.zip
               # sudo ./aws/install
@@ -155,7 +157,7 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
-      # - install_awscli
+      - install_awscli
       - run:
           name: Ensure back-end infrastructure exists
           command: |
