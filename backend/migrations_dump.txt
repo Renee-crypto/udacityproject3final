@@ -1,0 +1,12 @@
+
+> glee2@1.0.0 premigrations D:\udacityproject3final\backend
+> npm run build
+
+
+> glee2@1.0.0 build D:\udacityproject3final\backend
+> tsc
+
+
+> glee2@1.0.0 migrations D:\udacityproject3final\backend
+> ts-node -r dotenv/config node_modules/.bin/typeorm migration:run
+
