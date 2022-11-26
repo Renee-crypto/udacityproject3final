@@ -212,20 +212,21 @@ jobs:
 
   configure-infrastructure:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/base:2021.04
     steps:
       - checkout
       - install_ansible
+      - install_awscli
       - add_ssh_keys:
           fingerprints: ["75:7d:8c:65:71:bd:4b:a7:f5:24:bc:bc:7e:ed:c1:ce"]
       - attach_workspace:
           at: ~/
           
-      # - run:
-      #     name: Install dependencies
-      #     command: |
-      #       # Your code here
-      #       exit 1
+      - run:
+          name: Install dependencies
+          command: |
+            sudo apt -y update
+            sudo apt -y install tar gzip
       - run:
           name: Configure server
           command: |
@@ -242,7 +243,7 @@ jobs:
     steps:
       - checkout
       - install_awscli
-      - install_nodejs
+      # - install_nodejs
 
       - run:
           name: Run migrations
