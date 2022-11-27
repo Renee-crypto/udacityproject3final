@@ -212,11 +212,12 @@ jobs:
 
   configure-infrastructure:
     docker:
-      - image: cimg/base:2021.04
+      - image: cimg/python:3.10
     steps:
       - checkout
       - install_ansible
       - install_awscli
+      - install_nodejs
       - add_ssh_keys:
           fingerprints: ["75:7d:8c:65:71:bd:4b:a7:f5:24:bc:bc:7e:ed:c1:ce"]
       - attach_workspace:
